@@ -1,4 +1,6 @@
 defmodule ExW3 do
+  defdelegate block_number, to: ExW3.Rpc
+
   Module.register_attribute(__MODULE__, :unit_map, persist: true, accumulate: false)
   Module.register_attribute(__MODULE__, :client_type, persist: true, accumulate: false)
 
@@ -154,18 +156,6 @@ defmodule ExW3 do
     hex_string
     |> String.slice(2..-1)
     |> String.to_integer(16)
-  end
-
-  @spec block_number() :: integer()
-  @doc "Returns the current block number"
-  def block_number do
-    case call_client(:eth_block_number) do
-      {:ok, block_number} ->
-        block_number |> to_decimal
-
-      err ->
-        err
-    end
   end
 
   @spec balance(binary()) :: integer() | {:error, any()}

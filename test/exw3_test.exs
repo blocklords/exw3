@@ -1,4 +1,4 @@
-defmodule EXW3Test do
+defmodule ExW3Test do
   use ExUnit.Case
   doctest ExW3
 
@@ -21,10 +21,6 @@ defmodule EXW3Test do
 
   test "gets balance", context do
     assert ExW3.balance(Enum.at(context[:accounts], 0)) |> is_integer
-  end
-
-  test "gets block number" do
-    assert ExW3.block_number() |> is_integer
   end
 
   test "loads abi", context do
