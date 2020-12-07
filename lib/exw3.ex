@@ -1,5 +1,7 @@
 defmodule ExW3 do
-  defdelegate block_number, to: ExW3.Rpc
+  defdelegate block_number(opts \\ []), to: ExW3.Rpc
+  # defdelegate get_logs(filter, opts \\ []), to: ExW3.Rpc
+  defdelegate get_logs(filter, opts \\ []), to: ExW3.Rpc
 
   Module.register_attribute(__MODULE__, :unit_map, persist: true, accumulate: false)
   Module.register_attribute(__MODULE__, :client_type, persist: true, accumulate: false)

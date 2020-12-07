@@ -26,7 +26,9 @@ defmodule ExW3.MixProject do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:ethereumex, "~> 0.6.4"},
+      # {:ethereumex, "~> 0.6.4"},
+      # {:ethereumex, github: "rupurt/ethereumex", branch: "injectable-config-setup-children"},
+      {:ethereumex, github: "rupurt/ethereumex", branch: "patches"},
       {:ex_keccak, "~> 0.1.2"},
       {:ex_abi, "~> 0.5.1"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
