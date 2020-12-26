@@ -1,46 +1,9 @@
 defmodule ExW3 do
-  Module.register_attribute(__MODULE__, :unit_map, persist: true, accumulate: false)
   Module.register_attribute(__MODULE__, :client_type, persist: true, accumulate: false)
-
-  @unit_map %{
-    :noether => 0,
-    :wei => 1,
-    :kwei => 1_000,
-    :Kwei => 1_000,
-    :babbage => 1_000,
-    :femtoether => 1_000,
-    :mwei => 1_000_000,
-    :Mwei => 1_000_000,
-    :lovelace => 1_000_000,
-    :picoether => 1_000_000,
-    :gwei => 1_000_000_000,
-    :Gwei => 1_000_000_000,
-    :shannon => 1_000_000_000,
-    :nanoether => 1_000_000_000,
-    :nano => 1_000_000_000,
-    :szabo => 1_000_000_000_000,
-    :microether => 1_000_000_000_000,
-    :micro => 1_000_000_000_000,
-    :finney => 1_000_000_000_000_000,
-    :milliether => 1_000_000_000_000_000,
-    :milli => 1_000_000_000_000_000,
-    :ether => 1_000_000_000_000_000_000,
-    :kether => 1_000_000_000_000_000_000_000,
-    :grand => 1_000_000_000_000_000_000_000,
-    :mether => 1_000_000_000_000_000_000_000_000,
-    :gether => 1_000_000_000_000_000_000_000_000_000,
-    :tether => 1_000_000_000_000_000_000_000_000_000_000
-  }
 
   @spec get_client_type() :: atom()
   def get_client_type do
     Application.get_env(:ethereumex, :client_type, :http)
-  end
-
-  @spec get_unit_map() :: map()
-  @doc "Returns the map used for ether unit conversion"
-  def get_unit_map do
-    @unit_map
   end
 
   @spec bytes_to_string(binary()) :: binary()
