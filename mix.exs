@@ -3,16 +3,16 @@ defmodule ExW3.MixProject do
 
   def project do
     [
-      app: :exw3,
-      version: "0.4.4",
+      app: :exw3_extended,
+      version: "0.4.5",
       elixir: "~> 1.10",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
       package: package(),
-      name: "exw3",
-      source_url: "https://github.com/hswick/exw3",
+      name: "exw3_extended",
+      source_url: "https://github.com/blocklords/exw3",
       dialyzer: [
         remove_defaults: [:unknown]
       ]
@@ -35,16 +35,16 @@ defmodule ExW3.MixProject do
   end
 
   defp description do
-    "A high level Ethereum JSON RPC Client for Elixir"
+    "The continuation of ExW3, a high level Ethereum JSON RPC Client for Elixir"
   end
 
   defp package do
     [
-      name: "exw3",
+      name: "exw3_extended",
       files: ["lib", "mix.exs", "README*"],
-      maintainers: ["Harley Swick"],
+      maintainers: ["Medet Ahmetson"],
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/hswick/exw3"}
+      links: %{"GitHub" => "https://github.com/blocklords/exw3"}
     ]
   end
 end
