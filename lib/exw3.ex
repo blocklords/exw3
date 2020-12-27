@@ -851,9 +851,10 @@ defmodule ExW3 do
               topic_type = Enum.at(event_attributes[:topic_types], i)
               topic_data = Enum.at(tail, i)
 
-              {decoded} = ExW3.decode_data(topic_type, topic_data)
-
-              decoded
+	      case ExW3.decode_data(topic_type, topic_data) do		  
+		{decoded} -> decoded
+		decoded -> decoded
+	      end
             end)
 
           Enum.zip(event_attributes[:topic_names], decoded_topics) |> Enum.into(%{})
