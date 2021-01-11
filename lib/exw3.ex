@@ -325,19 +325,15 @@ defmodule ExW3 do
   @spec load_abi(binary()) :: list() | {:error, atom()}
   @doc "Loads the abi at the file path and reformats it to a map"
   def load_abi(file_path) do
-    with {:ok, cwd} <- File.cwd(),
-         {:ok, abi} <- File.read(Path.join([cwd, file_path])) do
+      {:ok, abi} = File.read(file_path)
       reformat_abi(Jason.decode!(abi))
-    end
   end
 
   @spec load_bin(binary()) :: binary()
   @doc "Loads the bin ar the file path"
   def load_bin(file_path) do
-    with {:ok, cwd} <- File.cwd(),
-         {:ok, bin} <- File.read(Path.join([cwd, file_path])) do
+      {:ok, bin} = File.read(file_path)
       bin
-    end
   end
 
   @spec decode_data(binary(), binary()) :: any()
